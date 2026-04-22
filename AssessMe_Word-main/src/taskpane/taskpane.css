@@ -1,0 +1,80 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.ms-welcome__header {
+    padding: 20px;
+    padding-bottom: 30px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ms-welcome__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.ms-welcome__main > h2 {
+    text-align: center;
+}
+
+#controls {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.select-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+select {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.toggle-label {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.status-banner {
+    margin-top: 20px;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-align: center;
+    width: 90%;
+    font-size: 16px;
+}
+
+.status-active {
+    background-color: #e6f7e6;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.status-idle {
+    background-color: #fff4e5;
+    color: #f57c00;
+    border: 1px solid #ffcc80;
+}
+
+.status-error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
