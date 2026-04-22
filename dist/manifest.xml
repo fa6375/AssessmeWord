@@ -1,117 +1,85 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
-           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
-           xsi:type="TaskPaneApp">
-
-  <Id>12345678-1234-1234-1234-123456789abc</Id>
-  <Version>1.0.0.0</Version>
-  <ProviderName>AssessMe</ProviderName>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
+  <Id>7ee61f2e-8ea0-468f-ac09-64b5d0912555</Id>
+  <Version>1.0.0.1</Version>
+  <ProviderName>RIT Croatia</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-
-  <DisplayName DefaultValue="AssessMe"/>
-  <Description DefaultValue="Assess documents easily."/>
-
+  <DisplayName DefaultValue="AssessMe Word"/>
+  <Description DefaultValue="AssessMe Word - track and log activities"/>
   <IconUrl DefaultValue="https://www.contoso.com/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://www.contoso.com/assets/icon-64.png"/>
-  <SupportUrl DefaultValue="https://www.contoso.com/help/help.html"/>
-
+  <SupportUrl DefaultValue="https://www.contoso.com/help"/>
   <AppDomains>
-    <AppDomain>https://localhost:3002</AppDomain>
+    <AppDomain>https://www.contoso.com</AppDomain>
   </AppDomains>
-
   <Hosts>
     <Host Name="Document"/>
   </Hosts>
-
   <DefaultSettings>
     <SourceLocation DefaultValue="https://www.contoso.com/taskpane.html"/>
   </DefaultSettings>
-
   <Permissions>ReadWriteDocument</Permissions>
-
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
-                    xsi:type="VersionOverridesV1_0">
-
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
     <Hosts>
       <Host xsi:type="Document">
-
         <DesktopFormFactor>
-
           <GetStarted>
             <Title resid="GetStarted.Title"/>
             <Description resid="GetStarted.Description"/>
             <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
           </GetStarted>
-
           <FunctionFile resid="Commands.Url"/>
-
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <OfficeTab id="TabHome">
-
               <Group id="CommandsGroup">
                 <Label resid="CommandsGroup.Label"/>
-
                 <Icon>
                   <bt:Image size="16" resid="Icon.16x16"/>
                   <bt:Image size="32" resid="Icon.32x32"/>
                   <bt:Image size="80" resid="Icon.80x80"/>
                 </Icon>
-
                 <Control xsi:type="Button" id="TaskpaneButton">
                   <Label resid="TaskpaneButton.Label"/>
                   <Supertip>
                     <Title resid="TaskpaneButton.Label"/>
                     <Description resid="TaskpaneButton.Tooltip"/>
                   </Supertip>
-
                   <Icon>
                     <bt:Image size="16" resid="Icon.16x16"/>
                     <bt:Image size="32" resid="Icon.32x32"/>
                     <bt:Image size="80" resid="Icon.80x80"/>
                   </Icon>
-
                   <Action xsi:type="ShowTaskpane">
                     <TaskpaneId>ButtonId1</TaskpaneId>
                     <SourceLocation resid="Taskpane.Url"/>
                   </Action>
                 </Control>
-
               </Group>
             </OfficeTab>
           </ExtensionPoint>
-
         </DesktopFormFactor>
       </Host>
     </Hosts>
-
     <Resources>
-
       <bt:Images>
         <bt:Image id="Icon.16x16" DefaultValue="https://www.contoso.com/assets/icon-16.png"/>
         <bt:Image id="Icon.32x32" DefaultValue="https://www.contoso.com/assets/icon-32.png"/>
         <bt:Image id="Icon.80x80" DefaultValue="https://www.contoso.com/assets/icon-80.png"/>
       </bt:Images>
-
       <bt:Urls>
-        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://www.contoso.com/help/help.html"/>
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
         <bt:Url id="Commands.Url" DefaultValue="https://www.contoso.com/commands.html"/>
         <bt:Url id="Taskpane.Url" DefaultValue="https://www.contoso.com/taskpane.html"/>
       </bt:Urls>
-
       <bt:ShortStrings>
-        <bt:String id="GetStarted.Title" DefaultValue="Get started with AssessMe"/>
-        <bt:String id="CommandsGroup.Label" DefaultValue="AssessMe"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Open AssessMe"/>
+        <bt:String id="GetStarted.Title" DefaultValue="Welcome to AssessMe!"/>
+        <bt:String id="CommandsGroup.Label" DefaultValue="AssessMe Tools"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Open AssessMe Pane"/>
       </bt:ShortStrings>
-
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Assess your document using AssessMe."/>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Open the AssessMe panel"/>
+        <bt:String id="GetStarted.Description" DefaultValue="Track and log your Word activities easily with AssessMe."/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to open AssessMe's activity panel."/>
       </bt:LongStrings>
-
     </Resources>
-
   </VersionOverrides>
 </OfficeApp>
