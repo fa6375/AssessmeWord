@@ -1,10 +1,10 @@
 Office.onReady(() => {
-    document.getElementById("extractLogs").onclick = exportJSON;
+    document.getElementById("exportJsonBtn").onclick = exportJSON;
 });
 
 const SECRET_KEY = "your-secret-key";
 
-// 📦 Read XML
+// 📦 Read XML logs
 async function getTrackingData(context) {
     const parts = context.document.customXmlParts;
     parts.load("items");
@@ -25,7 +25,7 @@ async function getTrackingData(context) {
     return logs;
 }
 
-// 🔐 Decrypt
+// 🔐 Decrypt logs
 function decryptLogs(logs) {
     return logs.map(log => {
         try {
@@ -80,7 +80,22 @@ function buildFinalJSON(snapshots) {
     };
 }
 
-// 📄 Export JSON into Word (or console/file)
+// 💾 DOWNLOAD JSON FILE
+function downloadJSON(data) {
+    const jsonString = JSON.stringify(data, null, 2);
+
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "writing-data.json";
+    a.click();
+
+    URL.revokeObjectURL(url);
+}
+
+// 🚀 MAIN EXPORT FUNCTION
 async function exportJSON() {
     await Word.run(async (context) => {
 
@@ -89,10 +104,7 @@ async function exportJSON() {
         const snapshots = buildSnapshots(decrypted);
         const finalJSON = buildFinalJSON(snapshots);
 
-        const jsonString = JSON.stringify(finalJSON, null, 2);
-
-        const newDoc = context.application.createDocument();
-        newDoc.body.insertText(jsonString, "Start");
+        downloadJSON(finalJSON);
 
         await context.sync();
     });
